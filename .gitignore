@@ -29,3 +29,4 @@ _testmain.go
 /mender-artifact-linux
 
 .gitpod.yml
+result
