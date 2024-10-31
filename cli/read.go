@@ -292,6 +292,9 @@ func readArtifact(c *cli.Context) error {
 		fmt.Fprintln(os.Stderr, "Reading Artifact...")
 		ar.ProgressReader = utils.NewProgressReader()
 	}
+	if c.Bool("header-only") {
+		ar.ReadHeaderOnly = true;
+	}
 	ar.ScriptsReadCallback = readScripts
 	ar.VerifySignatureCallback = ver
 	err = ar.ReadArtifact()

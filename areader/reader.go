@@ -49,6 +49,7 @@ type Reader struct {
 	ForbidUnknownHandlers     bool
 
 	shouldBeSigned  bool
+	ReadHeaderOnly  bool
 	hInfo           artifact.HeaderInfoer
 	augmentedhInfo  artifact.HeaderInfoer
 	info            *artifact.Info
@@ -596,6 +597,10 @@ func (ar *Reader) readHeaderV2(version []byte) error {
 func (ar *Reader) ReadArtifact() error {
 	err := ar.ReadArtifactHeaders()
 	if err != nil {
+		return err
+	}
+
+	if ar.ReadHeaderOnly {
 		return err
 	}
 

@@ -513,6 +513,10 @@ func getCliContext() *cli.App {
 				Name:  "no-progress",
 				Usage: "Suppress the progressbar output",
 			},
+			cli.BoolFlag{
+				Name:  "header-only",
+				Usage: "Read only the header. The files field will be invalid.",
+			},
 		},
 	}
 
